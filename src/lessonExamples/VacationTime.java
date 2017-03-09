@@ -8,7 +8,8 @@ public class VacationTime {
 	public String destination;
 	public double pricemin;
 	public double pricemax;
-	public String month; 
+	private static String monthString;
+
 	
 	public VacationTime (String finaldestination, double pricem, double priceM) { // constructor to create the instances for the variables 
 		destination = finaldestination;
@@ -16,15 +17,12 @@ public class VacationTime {
 		pricemax = priceM;	
         }
 	
-	public VacationTime (String months) { // constructor to create the instances for the variables 
-		month = months;	
-        }
-	
+
 	public void discount() { //method that gives you a discount if you are the 6th client, randomly selected between 1 and 20
 		pricemin = pricemin*0.8;
 		}
 	
-	
+                 
 	public static void main(String [] args) {
 		
 		VacationTime [] mydestination =new VacationTime [3];
@@ -32,19 +30,6 @@ public class VacationTime {
 		mydestination[1]=new VacationTime ("Iceland",1960,2560);
 		mydestination[2]=new VacationTime ("Botswana",2980,3960);
 		
-		VacationTime [] mymonth =new VacationTime [13];
-		mymonth[1]=new VacationTime ("January");
-		mymonth[2]=new VacationTime ("February");
-		mymonth[3]=new VacationTime ("March");
-		mymonth[4]=new VacationTime ("April");
-		mymonth[5]=new VacationTime ("May");
-		mymonth[6]=new VacationTime ("June");
-		mymonth[7]=new VacationTime ("July");
-		mymonth[8]=new VacationTime ("August");
-		mymonth[9]=new VacationTime ("September");
-		mymonth[10]=new VacationTime ("October");
-		mymonth[11]=new VacationTime ("November");
-		mymonth[12]=new VacationTime ("December");
 		
 		
 		Random rand = new Random();
@@ -60,44 +45,89 @@ public class VacationTime {
 		Scanner scan = new Scanner(System.in);
 		int A = scan.nextInt();
 		
-		System.out.println("Please enter the month in which you want to go. 1 for January, 12 for December");
+		if (A > 2 ){	
+		System.out.println("The selections are not correct, please try again");
+		return;
+		
+		} else {
+			
+	    System.out.println("In which month do you want to go? From 1 for January to 12 for December");
 		int B = scan.nextInt();
 		
+		if (B == 0 || B > 12 ){	
+			System.out.println("The selections are not correct, please try again");
+			return;
+			} else {
 		
-		System.out.println("How many people?");
-		int C = scan.nextInt();
+		     System.out.println("How many people?");
+		     int C = scan.nextInt();
 		
+		     if (C == 0){	
+			 System.out.println("The selections are not correct, please try again");
+			 return;
+			 } else {
 		
-		 if (A == 0 && (B == 1 || B == 2 || B == 3 || B == 4 || B == 11 || B == 12)) {
-			   
-				System.out.println("It is high season in Maldives, the price for "+C+" is " +mydestination[0].pricemax*C+"$");
-				
+		switch (B) {
+		  
+        case 1:  monthString = "January";
+                 break;
+        case 2:  monthString = "February";
+                 break;
+        case 3:  monthString = "March";
+                 break;
+        case 4:  monthString = "April";
+                 break;
+        case 5:  monthString = "May";
+                 break;
+        case 6:  monthString = "June";
+                 break;
+        case 7:  monthString = "July";
+                 break;
+        case 8:  monthString = "August";
+                 break;
+        case 9:  monthString = "September";
+                 break;
+        case 10: monthString = "October";
+                 break;
+        case 11: monthString = "November";
+                 break;
+        case 12: monthString = "December";
+                 break;
+           } 
+		
+
+			
+		        if (A == 0 && (B == 1 || B == 2 || B == 3 || B == 4 || B == 11 || B == 12)) {
+			
+  
+				System.out.println("It is high season in "+monthString+" in Maldives, the price for "+C+" is " +mydestination[0].pricemax*C+"$");
+			    
 			       } else {
 			    	
 			    	if (A == 0 && (B == 5 || B == 6 || B == 7 || B == 8 || B == 9 || B == 10 )) {
 		
-			           System.out.println("It is low season in Maldives, the price for "+C+" is " +mydestination[0].pricemin*C+"$");	
+			           System.out.println("It is low season in "+monthString+" in Maldives, the price for "+C+" is " +mydestination[0].pricemin*C+"$");	
 	                  
 			    	     } else {
 			    	
 			    	          if (A == 1 && (B == 1 || B == 2 || B == 3 || B == 7 || B == 8 || B == 9 )) {
 				        	
-							      System.out.println("It is high season in Iceland, the price for "+C+" is " +mydestination[1].pricemax*C+"$");
+							      System.out.println("It is high season in "+monthString+" in Iceland, the price for "+C+" is " +mydestination[1].pricemax*C+"$");
 						           } else {
 						    	
 						    	     if (A == 1 && (B == 10 || B == 11 || B == 12 || B == 4 || B == 5 || B == 6 )) {
 					
-						               System.out.println("It is low season in Iceland, the price for "+C+" is " +mydestination[1].pricemin*C+"$");	
+						               System.out.println("It is low season in "+monthString+" in Iceland, the price for "+C+" is " +mydestination[1].pricemin*C+"$");	
 						             	} else {
 						             		
 						             	 if (A == 2 && (B == 5 || B == 6 || B == 7 || B == 8 || B == 9 || B == 10 )) {
 							        	
-										    System.out.println("It is high season in Botswana, the price for "+C+" is " +mydestination[2].pricemax*C+"$");
+										    System.out.println("It is high season in "+monthString+" in Botswana, the price for "+C+" is " +mydestination[2].pricemax*C+"$");
 									         } else {
 									    	
 									         	if (A == 2 && (B == 1 || B == 2 || B == 3 || B == 4 || B == 11 || B == 12 )) {
 								
-									             System.out.println("It is low season in Botswana, the price for "+C+" is " +mydestination[2].pricemin*C+"$");	
+									             System.out.println("It is low season in "+monthString+" in Botswana, the price for "+C+" is " +mydestination[2].pricemin*C+"$");	
 							                     } else {	   
 							           
 							        	         System.out.println("The selections are not correct, please try again");
@@ -106,8 +136,11 @@ public class VacationTime {
 						                     }
 			                          }
 	                           }
-			               }
-	 
+			                }
+		              }
+			
+		
+		     
 		 if (n == 6 && A == 0) {
          	
          	mydestination[0].discount();
@@ -137,9 +170,9 @@ public class VacationTime {
             }
  
      }
-}		           
-
-
+      }		           
+	}
+}
 			    
 			    
 
