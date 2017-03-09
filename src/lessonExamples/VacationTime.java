@@ -67,33 +67,33 @@ public class VacationTime {
 			 return;
 			 } else {
 		
-		switch (B) {
-		  
-        case 1:  monthString = "January";
+	            switch (B) {
+		    
+               case 1:  monthString = "January";
                  break;
-        case 2:  monthString = "February";
+               case 2:  monthString = "February";
                  break;
-        case 3:  monthString = "March";
+               case 3:  monthString = "March";
                  break;
-        case 4:  monthString = "April";
+               case 4:  monthString = "April";
                  break;
-        case 5:  monthString = "May";
+               case 5:  monthString = "May";
                  break;
-        case 6:  monthString = "June";
+               case 6:  monthString = "June";
                  break;
-        case 7:  monthString = "July";
+               case 7:  monthString = "July";
                  break;
-        case 8:  monthString = "August";
+               case 8:  monthString = "August";
                  break;
-        case 9:  monthString = "September";
+               case 9:  monthString = "September";
                  break;
-        case 10: monthString = "October";
+              case 10: monthString = "October";
                  break;
-        case 11: monthString = "November";
+              case 11: monthString = "November";
                  break;
-        case 12: monthString = "December";
+              case 12: monthString = "December";
                  break;
-           } 
+              } 
 		
 
 			
@@ -134,14 +134,14 @@ public class VacationTime {
 							                     }
 							                    }
 						                     }
-			                          }
-	                           }
+			                            }
+	                             }
 			                }
 		              }
 			
 		
 		     
-		 if (n == 6 && A == 0) {
+		    if (n == 6 && A == 0) {
          	
          	mydestination[0].discount();
          	System.out.println("But since you were the customer number "+n+" to check our offers today you can book at a new special price "+mydestination[0].pricemin*C+"$");
@@ -164,12 +164,10 @@ public class VacationTime {
          	   
          	       }  else {
          	    	  return; 
-         	   }
-     	
-            }
-            }
- 
-     }
+         	    }
+              }
+            } 
+        }
       }		           
 	}
 }
